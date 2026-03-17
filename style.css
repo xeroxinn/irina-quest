@@ -305,8 +305,8 @@ body { height: 100dvh; }
 }
 
 #character-sprite {
-    width: 140px;
-    height: 200px;
+    width: 182px;
+    height: 260px;
     margin: 0 auto;
     display: flex;
     align-items: flex-end;
@@ -628,6 +628,76 @@ body { height: 100dvh; }
     color: #f99;
 }
 
+.input-buttons {
+    display: flex;
+    gap: 0.6em;
+    margin-top: 0.8em;
+}
+
+.input-buttons .btn-submit {
+    margin-top: 0;
+    flex: 1;
+}
+
+.btn-hint {
+    margin-top: 0;
+    padding: 0.8em 1.2em;
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f0d68a;
+    background: rgba(240, 214, 138, 0.12);
+    border: 1px solid rgba(240, 214, 138, 0.3);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+    white-space: nowrap;
+}
+
+.btn-hint:active {
+    transform: scale(0.97);
+    background: rgba(240, 214, 138, 0.2);
+}
+
+#hint-letters {
+    margin-top: 0.6em;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #f0d68a;
+    letter-spacing: 0.15em;
+    min-height: 1.5em;
+}
+
+/* ============================================
+   EPILOGUE CHARACTER GROUP
+   ============================================ */
+
+#character-sprite:has(.epilogue-group) {
+    width: 95vw;
+    height: auto;
+    max-height: 45vh;
+}
+
+.epilogue-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.2em;
+    padding: 0.3em;
+}
+
+.epilogue-group img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 3px rgba(240, 214, 138, 0.4))
+        drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+    animation: none;
+}
+
 /* ============================================
    VIDEO OVERLAY
    ============================================ */
@@ -842,8 +912,8 @@ body { height: 100dvh; }
     }
 
     #character-sprite {
-        width: 200px;
-        height: 280px;
+        width: 260px;
+        height: 364px;
     }
 
     #character-name-floating {
@@ -925,8 +995,8 @@ body { height: 100dvh; }
     }
 
     #character-sprite {
-        width: 110px;
-        height: 160px;
+        width: 143px;
+        height: 208px;
     }
 
     .title-content h1 {

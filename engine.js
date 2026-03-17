@@ -48,6 +48,8 @@ class GameEngine {
             inputField: document.getElementById('input-field'),
             inputSubmit: document.getElementById('input-submit'),
             inputFeedback: document.getElementById('input-feedback'),
+            hintBtn: document.getElementById('hint-btn'),
+            hintLetters: document.getElementById('hint-letters'),
             videoOverlay: document.getElementById('video-overlay'),
             videoFrame: document.getElementById('video-frame'),
             videoClose: document.getElementById('video-close'),
@@ -80,6 +82,11 @@ class GameEngine {
 
         this.els.inputField.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') this.submitInput();
+        });
+
+        // Hint button — reveals one letter at a time
+        this.els.hintBtn.addEventListener('click', () => {
+            this.revealHintLetter();
         });
 
         // Video close
@@ -268,8 +275,16 @@ class GameEngine {
                 this.els.background.className = `bg-${scene.background}`;
             }
 
-            // Set character
-            if (scene.character) {
+            // Set character (single or group)
+            if (scene.characterGroup) {
+                // Epilogue group: show all characters as small thumbnails
+                this.els.characterContainer.style.opacity = '1';
+                this.els.characterSprite.innerHTML = '<div class="epilogue-group">' +
+                    scene.characterGroup.map(s =>
+                        `<img src="assets/characters/${s}" alt="" draggable="false">`
+                    ).join('') + '</div>';
+                this.els.characterNameFloat.textContent = '';
+            } else if (scene.character) {
                 this.els.characterContainer.style.opacity = '1';
                 const sprite = scene.character.sprite || '';
                 if (sprite.endsWith('.png')) {
@@ -443,6 +458,29 @@ class GameEngine {
         this.els.inputOverlay.classList.remove('hidden');
         this.els.inputField.focus();
         this.inputAttempts = 0;
+        // Progressive hint state
+        this.hintRevealed = 0;
+        this.hintAnswer = config.hintAnswer || config.answers[0] || '';
+        this.els.hintLetters.textContent = '';
+        this.els.hintBtn.style.display = '';
+    }
+
+    revealHintLetter() {
+        if (this.inputLocked) return;
+        const answer = this.hintAnswer;
+        if (!answer || this.hintRevealed >= answer.length) return;
+
+        this.hintRevealed++;
+        const revealed = answer.slice(0, this.hintRevealed);
+        const hidden = '·'.repeat(answer.length - this.hintRevealed);
+        this.els.hintLetters.textContent = revealed + hidden;
+
+        // When fully revealed, auto-fill and submit
+        if (this.hintRevealed >= answer.length) {
+            this.els.inputField.value = answer;
+            this.els.hintBtn.style.display = 'none';
+            setTimeout(() => this.submitInput(), 600);
+        }
     }
 
     submitInput() {
@@ -464,6 +502,8 @@ class GameEngine {
             this.els.inputFeedback.textContent = config.correctText || 'Верно!';
             this.els.inputFeedback.className = 'correct';
             this.els.inputFeedback.classList.remove('hidden');
+            this.els.hintBtn.style.display = 'none';
+            this.els.hintLetters.textContent = '';
 
             if (config.giveItem) {
                 this.addItem(config.giveItem.id, config.giveItem.name, config.giveItem.icon);
@@ -486,14 +526,15 @@ class GameEngine {
             this.els.inputField.classList.add('shake');
             setTimeout(() => this.els.inputField.classList.remove('shake'), 500);
 
-            // After 3 wrong attempts, show hint
+            // After 3 wrong attempts, show hint text
             if (this.inputAttempts >= 3 && config.hint) {
                 this.els.inputFeedback.textContent = config.hint;
             }
-            // After 5 wrong attempts, let them through
+            // After 5 wrong attempts, auto-skip
             if (this.inputAttempts >= 5 && config.correctNext) {
                 this.inputLocked = true;
                 this.els.inputField.blur();
+                this.els.hintBtn.style.display = 'none';
                 setTimeout(() => {
                     this.els.inputFeedback.textContent = config.skipText || 'Ничего страшного! Двигаемся дальше...';
                     this.els.inputFeedback.className = 'correct';

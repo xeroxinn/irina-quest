@@ -155,6 +155,7 @@ const STORY = {
                 correctText: 'Леший аж подпрыгнул от удовольствия: «Верно! Эх, и умна же ты, Ирина Александровна!»',
                 wrongText: 'Леший почесал затылок: «Неа, не то. Подумай ещё!»',
                 hint: 'Подсказка: это зелёное, хрустящее и растёт на грядке...',
+                hintAnswer: 'огурец',
                 skipText: 'Леший вздохнул: «Ладно, огурец это. Но Клубочек всё равно дам — день рождения всё-таки!»',
                 correctNext: 'act1_leshiy_success',
                 wrongNext: 'act1_leshiy_success',
@@ -258,6 +259,7 @@ const STORY = {
                 correctText: '«Правильно! — обрадовался Печкин. — Держите ваше письмо!»',
                 wrongText: '«Нет, не то. У него длинный нос и золотой ключик!»',
                 hint: 'Подсказка: он искал золотой ключик и был сделан из полена...',
+                hintAnswer: 'буратино',
                 correctNext: 'act1_pechkin_letter',
                 wrongNext: 'act1_pechkin_letter'
             }
@@ -272,7 +274,7 @@ const STORY = {
                 },
                 {
                     speaker: '',
-                    text: '«Дорогая Ирина Александровна! Впереди — Сказочная Деревня. За ней — Испанский Портал. За порталом — Замок. В Замке — ваш подарок. Но путь откроется только тому, кто соберёт достаточно волшебных предметов. Ваш Игорь.»'
+                    text: '«Дорогая Ирина Александровна! Впереди — Сказочная Деревня. За ней — Испанский Портал. За порталом — Замок. В Замке — твой подарок. Но путь откроется только тому, кто соберёт достаточно волшебных предметов. Твой Игорь.»'
                 },
                 {
                     speaker: 'Ирина Александровна',
@@ -331,7 +333,7 @@ const STORY = {
 
         act2_school: {
             background: 'school',
-            character: { sprite: '', label: 'Школа Тридевятого Царства' },
+            character: { sprite: 'malvina.png', label: 'Школа Тридевятого Царства' },
             dialogue: [
                 {
                     speaker: '',
@@ -416,7 +418,7 @@ const STORY = {
 
         act2_skatert: {
             background: 'village',
-            character: { sprite: '', label: 'Скатерть-Самобранка' },
+            character: { sprite: 'skatert.png', label: 'Скатерть-Самобранка' },
             dialogue: [
                 {
                     speaker: '',
@@ -441,6 +443,7 @@ const STORY = {
                 correctText: '«Верно! — Скатерть расцвела. — Самса из Кыргызстана! Накормлю от души!»',
                 wrongText: '«Нет-нет, подумайте! Лепёшка из тандыра, мясо, лук...»',
                 hint: 'Подсказка: страна, где горы Тянь-Шань и озеро Иссык-Куль...',
+                hintAnswer: 'кыргызстан',
                 correctNext: 'act2_skatert_success',
                 wrongNext: 'act2_skatert_success',
                 giveItem: { id: 'skatert', name: 'Скатерть-Самобранка', icon: '🧣' }
@@ -513,7 +516,7 @@ const STORY = {
 
         act2_yablochko: {
             background: 'village',
-            character: { sprite: '', label: 'Яблочко на Блюдечке' },
+            character: { sprite: 'yablochko.png', label: 'Яблочко на Блюдечке' },
             dialogue: [
                 {
                     speaker: '',
@@ -538,6 +541,7 @@ const STORY = {
                 correctText: '«Bella Ciao! — пропело яблочко. — Песня сопротивления! Верно!»',
                 wrongText: '«Нет, подумайте. Это итальянская партизанская песня...»',
                 hint: 'Подсказка: итальянская народная песня, ставшая гимном сопротивления... Bella...',
+                hintAnswer: 'bella ciao',
                 correctNext: 'act2_yablochko_success',
                 wrongNext: 'act2_yablochko_success',
                 giveItem: { id: 'yablochko', name: 'Яблочко на Блюдечке', icon: '🍎' }
@@ -643,6 +647,7 @@ const STORY = {
                 correctText: '«¡Perfecto!» — Менестрель расплылся в улыбке и взял торжественный аккорд.',
                 wrongText: '«Почти! Вспомните... digan lo que digan...»',
                 hint: 'Подсказка: «...los demás» — «пусть говорят что хотят остальные»',
+                hintAnswer: 'los demas',
                 correctNext: 'act3_song_success',
                 wrongNext: 'act3_song_success',
                 setFlag: 'sang_digan'
@@ -703,6 +708,7 @@ const STORY = {
                 correctText: '«Bellissimo! — ведьма смахнула слезу. — Настоящая любовь! Зелье готово!»',
                 wrongText: '«Нет-нет, cara mia! «Convéncete...» — убедись...»',
                 hint: 'Подсказка: «...nadie te amará» — «никто тебя так не полюбит»',
+                hintAnswer: 'nadie te amara',
                 correctNext: 'act3_witch_success',
                 wrongNext: 'act3_witch_success',
                 giveItem: { id: 'limoncello', name: 'Зелье Храбрости (Лимончелло)', icon: '🍋' }
@@ -816,6 +822,7 @@ const STORY = {
                 correctText: '«Верно! Серхио Маркина. Проходи!» — стражник отступил.',
                 wrongText: '«Нет. Подумай. Его звали Профессор, но настоящее имя...»',
                 hint: 'Подсказка: Серхио... Его фамилия начинается на М...',
+                hintAnswer: 'серхио маркина',
                 correctNext: 'act4_babayaga',
                 wrongNext: 'act4_babayaga'
             }
@@ -852,6 +859,7 @@ const STORY = {
                 correctText: '«Гусиное озеро! — Баба Яга хлопнула в ладоши. — Из Бурятии — и до Тридевятого Царства дошла! Вот это я понимаю — путешественница!»',
                 wrongText: '«Нет, милая. Озеро, город, Бурятия...»',
                 hint: 'Подсказка: озеро в Бурятии, давшее имя городу...',
+                hintAnswer: 'гусиное озеро',
                 correctNext: 'act4_koschei',
                 wrongNext: 'act4_koschei'
             }
@@ -980,6 +988,13 @@ const STORY = {
 
         epilogue_2: {
             background: 'lake',
+            characterGroup: [
+                'cat-scientist.png', 'cat-leopold.png', 'cheburashka.png',
+                'pechkin.png', 'malvina.png', 'buratino.png', 'neznaika.png',
+                'shapoklyak.png', 'vovka.png', 'minstrel.png',
+                'witch-italian.png', 'leshiy.png', 'baba-yaga.png', 'koschei.png',
+                'cat-monti.png', 'cat-belyash.png', 'dog-archi.png'
+            ],
             dialogue: [
                 {
                     speaker: '',
@@ -999,6 +1014,7 @@ const STORY = {
 
         epilogue_3: {
             background: 'lake',
+            character: { sprite: 'igor.png', label: 'Игорь и Марина' },
             dialogue: [
                 {
                     speaker: '',
