@@ -311,7 +311,6 @@ body { height: 100dvh; }
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(240, 214, 138, 0.15));
     transition: all 0.5s ease;
     animation: characterFloat 3s ease-in-out infinite;
 }
@@ -320,6 +319,11 @@ body { height: 100dvh; }
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    /* Warm fairy-tale glow masks rembg edge artifacts */
+    filter:
+        drop-shadow(0 0 6px rgba(240, 214, 138, 0.5))
+        drop-shadow(0 0 14px rgba(240, 214, 138, 0.25))
+        drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
 }
 
 @keyframes characterFloat {
