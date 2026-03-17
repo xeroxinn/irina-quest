@@ -1,0 +1,987 @@
+/* ============================================
+   IRINA'S QUEST — Visual Novel Stylesheet
+   MOBILE-FIRST (base: 390px iPhone)
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Lora', 'Georgia', serif;
+    background: #0a0a0a;
+    color: #f0e6d3;
+    /* Prevent pull-to-refresh and overscroll on mobile */
+    overscroll-behavior: none;
+    /* Safe area for notched phones */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Use dvh for mobile viewport (accounts for browser chrome) */
+html { height: 100dvh; }
+body { height: 100dvh; }
+
+.hidden { display: none !important; }
+
+/* ============================================
+   TITLE SCREEN
+   ============================================ */
+
+#title-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background:
+        radial-gradient(ellipse at 30% 80%, rgba(34, 85, 34, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 20%, rgba(75, 30, 100, 0.5) 0%, transparent 50%),
+        linear-gradient(180deg, #0d1b2a 0%, #1b2838 40%, #162a1e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em;
+}
+
+.title-overlay {
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.title-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #f0d68a;
+    text-shadow: 0 0 30px rgba(240, 214, 138, 0.3);
+    line-height: 1.3;
+    margin: 0.5em 0;
+}
+
+.title-sub {
+    font-size: 0.6em;
+    font-weight: 700;
+    color: #c9a84c;
+    display: block;
+    margin-top: 0.2em;
+}
+
+.title-decoration {
+    font-size: 1.5rem;
+    color: #c9a84c;
+    opacity: 0.6;
+}
+
+.title-tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #b8a88a;
+    margin-top: 1em;
+}
+
+.title-date {
+    font-size: 1.1rem;
+    color: #f0d68a;
+    margin-top: 0.5em;
+    font-weight: 600;
+}
+
+.btn-start {
+    margin-top: 2em;
+    padding: 1em 2.5em;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1b2838;
+    background: linear-gradient(135deg, #f0d68a, #c9a84c);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(240, 214, 138, 0.3);
+    /* Touch target: min 48px height */
+    min-height: 48px;
+}
+
+.btn-start:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 10px rgba(240, 214, 138, 0.3);
+}
+
+/* ============================================
+   GAME SCREEN
+   ============================================ */
+
+#game-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+/* Backgrounds */
+#background {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.8s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-kitchen {
+    background:
+        radial-gradient(ellipse at 50% 70%, rgba(180, 130, 60, 0.3) 0%, transparent 60%),
+        linear-gradient(180deg, #2a1f14 0%, #3d2b1a 40%, #4a3520 70%, #2a1f14 100%);
+}
+
+.bg-portal {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.4) 0%, transparent 60%),
+        linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 50%, #0d0d2b 100%);
+    animation: portalPulse 3s ease-in-out infinite;
+}
+
+.bg-forest {
+    background:
+        radial-gradient(ellipse at 30% 90%, rgba(20, 60, 20, 0.8) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(15, 50, 15, 0.6) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 20%, rgba(50, 80, 50, 0.3) 0%, transparent 60%),
+        linear-gradient(180deg, #0a1a0a 0%, #0f2b0f 30%, #1a3a1a 60%, #0d1f0d 100%);
+}
+
+.bg-forest-magic {
+    background:
+        radial-gradient(circle at 20% 60%, rgba(100, 200, 100, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 80% 40%, rgba(50, 150, 200, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(200, 180, 50, 0.08) 0%, transparent 20%),
+        radial-gradient(ellipse at 30% 90%, rgba(20, 60, 20, 0.8) 0%, transparent 50%),
+        linear-gradient(180deg, #081408 0%, #0f2b0f 30%, #1a3a1a 60%, #0d1f0d 100%);
+}
+
+.bg-forest-dark {
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(10, 10, 10, 0.5) 0%, transparent 80%),
+        linear-gradient(180deg, #050a05 0%, #0a150a 30%, #0f1f0f 60%, #050a05 100%);
+}
+
+.bg-village {
+    background:
+        radial-gradient(ellipse at 50% 80%, rgba(139, 90, 43, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 30%, rgba(135, 200, 235, 0.15) 0%, transparent 40%),
+        linear-gradient(180deg, #3a5c8a 0%, #7aa5c9 20%, #c4a96a 60%, #8b5a2b 80%, #5a3a1a 100%);
+}
+
+.bg-school {
+    background:
+        radial-gradient(ellipse at 50% 60%, rgba(180, 150, 100, 0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #4a3828 0%, #5a4838 30%, #6a5848 60%, #4a3828 100%);
+}
+
+.bg-spain {
+    background:
+        radial-gradient(ellipse at 60% 30%, rgba(255, 140, 0, 0.3) 0%, transparent 40%),
+        radial-gradient(ellipse at 40% 70%, rgba(200, 50, 50, 0.2) 0%, transparent 40%),
+        linear-gradient(180deg, #1a0a00 0%, #4a1a0a 30%, #7a2a0a 50%, #4a1a0a 70%, #1a0a00 100%);
+}
+
+.bg-castle {
+    background:
+        radial-gradient(ellipse at 50% 20%, rgba(80, 0, 0, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+        linear-gradient(180deg, #1a0000 0%, #2a0a0a 30%, #1a1a2a 50%, #0a0a1a 80%, #000005 100%);
+}
+
+.bg-castle-inside {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(200, 0, 0, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0a0f 0%, #1a0a0f 30%, #150a15 60%, #0a0510 100%);
+}
+
+.bg-celebration {
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 70% 60%, rgba(255, 105, 180, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(100, 200, 255, 0.1) 0%, transparent 30%),
+        linear-gradient(180deg, #0d1b3a 0%, #1a2a4a 30%, #1a3a3a 60%, #0d2b1a 100%);
+    animation: celebrationShimmer 4s ease-in-out infinite;
+}
+
+.bg-lake {
+    background:
+        radial-gradient(ellipse at 50% 70%, rgba(50, 100, 180, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 40%, rgba(100, 180, 100, 0.2) 0%, transparent 40%),
+        linear-gradient(180deg, #1a3050 0%, #2a5070 25%, #3a7a6a 50%, #2a6050 70%, #1a3a2a 100%);
+}
+
+/* CSS Particle Effects */
+.bg-forest-magic::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 30%, rgba(180, 255, 100, 0.6), transparent),
+        radial-gradient(1px 1px at 30% 70%, rgba(100, 220, 160, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 50% 20%, rgba(255, 230, 100, 0.4), transparent),
+        radial-gradient(1px 1px at 70% 50%, rgba(120, 200, 180, 0.5), transparent),
+        radial-gradient(1px 1px at 90% 80%, rgba(180, 255, 100, 0.3), transparent);
+    animation: fireflies 6s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-portal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20% 40%, rgba(180, 100, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 50% 50%, rgba(200, 120, 255, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 80% 30%, rgba(160, 80, 255, 0.4), transparent),
+        radial-gradient(2px 2px at 40% 70%, rgba(220, 140, 255, 0.5), transparent);
+    animation: sparkles 4s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-spain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1.5px 1.5px at 15% 25%, rgba(255, 200, 50, 0.4), transparent),
+        radial-gradient(1px 1px at 45% 60%, rgba(255, 180, 80, 0.3), transparent),
+        radial-gradient(1.5px 1.5px at 75% 35%, rgba(255, 220, 100, 0.35), transparent),
+        radial-gradient(1px 1px at 85% 75%, rgba(255, 160, 50, 0.3), transparent);
+    animation: fireflies 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-celebration::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1.5px 1.5px at 10% 20%, rgba(255, 215, 0, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 30% 60%, rgba(255, 105, 180, 0.4), transparent),
+        radial-gradient(1px 1px at 55% 35%, rgba(100, 200, 255, 0.4), transparent),
+        radial-gradient(1.5px 1.5px at 80% 50%, rgba(100, 255, 150, 0.4), transparent),
+        radial-gradient(1px 1px at 90% 85%, rgba(255, 215, 0, 0.3), transparent);
+    animation: sparkles 5s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes fireflies {
+    0% { opacity: 0.4; transform: translateY(0); }
+    100% { opacity: 0.8; transform: translateY(-10px); }
+}
+
+@keyframes sparkles {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* Progress Indicator */
+#progress-indicator {
+    position: absolute;
+    top: 10px;
+    left: 56px;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(240, 214, 138, 0.2);
+    font-family: 'Lora', serif;
+    font-size: 0.7rem;
+    color: rgba(240, 214, 138, 0.7);
+    white-space: nowrap;
+}
+
+@keyframes portalPulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.15); }
+}
+
+@keyframes celebrationShimmer {
+    0%, 100% { filter: brightness(1) saturate(1); }
+    50% { filter: brightness(1.1) saturate(1.2); }
+}
+
+/* ============================================
+   CHARACTER LAYER
+   ============================================ */
+
+#character-container {
+    position: absolute;
+    bottom: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#character-sprite {
+    width: 140px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(240, 214, 138, 0.15));
+    transition: all 0.5s ease;
+    animation: characterFloat 3s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+#character-name-floating {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #f0d68a;
+    margin-top: 0.3em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    opacity: 0.8;
+}
+
+/* ============================================
+   INVENTORY BAR
+   ============================================ */
+
+#inventory-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(240, 214, 138, 0.2);
+    max-width: 60vw;
+    flex-wrap: wrap;
+}
+
+#inventory-icon {
+    font-size: 1rem;
+}
+
+#inventory-list {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.inventory-item {
+    font-size: 1.2rem;
+    animation: itemAppear 0.5s ease-out;
+    cursor: default;
+    position: relative;
+}
+
+/* Tooltip on long-press for mobile */
+.inventory-item:active::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.9);
+    color: #f0d68a;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    font-family: 'Lora', serif;
+    z-index: 100;
+}
+
+@keyframes itemAppear {
+    from { transform: scale(0) rotate(-180deg); opacity: 0; }
+    to { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* ============================================
+   DIALOGUE BOX — Mobile-first
+   ============================================ */
+
+#dialogue-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 35%;
+    max-height: 45%;
+    background: linear-gradient(180deg, rgba(10, 10, 20, 0.88) 0%, rgba(10, 10, 20, 0.96) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 2px solid rgba(240, 214, 138, 0.3);
+    padding: 1em 1.2em 1.5em;
+    padding-bottom: calc(1.5em + env(safe-area-inset-bottom));
+    z-index: 20;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Prevent text selection on tap */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#speaker-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f0d68a;
+    margin-bottom: 0.4em;
+    min-height: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+#dialogue-text {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #e8dcc8;
+    flex: 1;
+    overflow-y: auto;
+    /* Smooth scrolling for long text */
+    -webkit-overflow-scrolling: touch;
+}
+
+#click-indicator {
+    position: absolute;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    right: 16px;
+    font-size: 0.85rem;
+    color: #f0d68a;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#click-indicator.visible {
+    opacity: 0.9;
+}
+
+#dialogue-box:active {
+    background: linear-gradient(180deg, rgba(20, 20, 35, 0.88) 0%, rgba(20, 20, 35, 0.96) 100%);
+    border-top-color: rgba(240, 214, 138, 0.5);
+}
+
+.blink {
+    animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.7; }
+}
+
+/* ============================================
+   CHOICE OVERLAY — Mobile-first
+   ============================================ */
+
+#choice-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#choice-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1em;
+    width: 92%;
+    max-width: 400px;
+}
+
+.choice-btn {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: #f0e6d3;
+    background: rgba(20, 20, 35, 0.88);
+    border: 1px solid rgba(240, 214, 138, 0.4);
+    border-radius: 14px;
+    padding: 1em 1.2em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Touch target: min 48px */
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.choice-btn:active {
+    background: rgba(240, 214, 138, 0.15);
+    border-color: #f0d68a;
+    transform: scale(0.98);
+}
+
+/* ============================================
+   INPUT OVERLAY — Mobile-first
+   ============================================ */
+
+#input-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5vh;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#input-container {
+    background: rgba(15, 15, 30, 0.94);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(240, 214, 138, 0.3);
+    border-radius: 16px;
+    padding: 1.5em;
+    width: 92%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#input-prompt {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e8dcc8;
+    margin-bottom: 1em;
+}
+
+#input-field {
+    width: 100%;
+    padding: 0.9em 1em;
+    font-family: 'Lora', serif;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    color: #f0e6d3;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(240, 214, 138, 0.3);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#input-field:focus {
+    border-color: #f0d68a;
+}
+
+#input-field::placeholder {
+    color: rgba(240, 230, 211, 0.3);
+}
+
+.btn-submit {
+    margin-top: 0.8em;
+    padding: 0.8em 2em;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1b2838;
+    background: linear-gradient(135deg, #f0d68a, #c9a84c);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+}
+
+.btn-submit:active {
+    transform: scale(0.97);
+}
+
+#input-feedback {
+    margin-top: 0.8em;
+    padding: 0.6em 0.8em;
+    border-radius: 8px;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#input-feedback.correct {
+    background: rgba(50, 180, 50, 0.15);
+    border: 1px solid rgba(50, 180, 50, 0.3);
+    color: #8f8;
+}
+
+#input-feedback.wrong {
+    background: rgba(200, 80, 80, 0.15);
+    border: 1px solid rgba(200, 80, 80, 0.3);
+    color: #f99;
+}
+
+/* ============================================
+   VIDEO OVERLAY
+   ============================================ */
+
+#video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1em;
+}
+
+#video-container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+#video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 1em;
+}
+
+#video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================
+   TRANSITION OVERLAY
+   ============================================ */
+
+#transition-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+#transition-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ============================================
+   ENDING SCREEN — Mobile-first
+   ============================================ */
+
+#ending-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+}
+
+.ending-overlay {
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
+        linear-gradient(180deg, #0d1b3a 0%, #1a2a4a 30%, #2a1a3a 60%, #1a0a2a 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 2em 1.2em;
+    padding-bottom: calc(2em + env(safe-area-inset-bottom));
+}
+
+.ending-content {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeInUp 1.5s ease-out;
+    padding-top: 1em;
+}
+
+.ending-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #f0d68a;
+    text-shadow: 0 0 30px rgba(240, 214, 138, 0.3);
+    margin-bottom: 0.8em;
+    line-height: 1.4;
+}
+
+.ending-message {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #e8dcc8;
+    margin-bottom: 1.5em;
+    text-align: left;
+    padding: 0 0.5em;
+}
+
+.ending-signature {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #f0d68a;
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+
+/* ============================================
+   FIREWORKS (ending screen)
+   ============================================ */
+
+.ending-fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* ============================================
+   MUSIC TOGGLE
+   ============================================ */
+
+.music-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 50;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(240, 214, 138, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #f0d68a;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.music-toggle:active {
+    transform: scale(0.9);
+    background: rgba(240, 214, 138, 0.15);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* ============================================
+   DESKTOP UPSCALE (min-width: 768px)
+   ============================================ */
+
+@media (min-width: 768px) {
+    .title-content h1 {
+        font-size: 3rem;
+    }
+
+    .title-decoration {
+        font-size: 2rem;
+    }
+
+    .title-tagline {
+        font-size: 1.2rem;
+    }
+
+    #character-container {
+        bottom: 28%;
+    }
+
+    #character-sprite {
+        width: 200px;
+        height: 280px;
+        font-size: 6rem;
+    }
+
+    #character-name-floating {
+        font-size: 0.9rem;
+    }
+
+    #dialogue-box {
+        min-height: 25%;
+        max-height: 35%;
+        padding: 1.2em 2em 1.5em;
+    }
+
+    #speaker-name {
+        font-size: 1.1rem;
+    }
+
+    #dialogue-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    #choice-container {
+        max-width: 600px;
+    }
+
+    .choice-btn {
+        font-size: 1.05rem;
+        padding: 1em 1.5em;
+    }
+
+    .choice-btn:hover {
+        background: rgba(240, 214, 138, 0.15);
+        border-color: #f0d68a;
+        transform: translateX(5px);
+        box-shadow: 0 0 20px rgba(240, 214, 138, 0.15);
+    }
+
+    #input-container {
+        padding: 2em;
+        max-width: 500px;
+    }
+
+    #input-prompt {
+        font-size: 1.05rem;
+    }
+
+    .btn-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(240, 214, 138, 0.4);
+    }
+
+    .ending-title {
+        font-size: 2.2rem;
+    }
+
+    .ending-message {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .btn-start:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba(240, 214, 138, 0.5);
+    }
+}
+
+/* ============================================
+   SMALL PHONES (max-height: 667px, iPhone SE)
+   ============================================ */
+
+@media (max-height: 667px) {
+    #dialogue-box {
+        min-height: 30%;
+        max-height: 40%;
+    }
+
+    #character-container {
+        bottom: 42%;
+    }
+
+    #character-sprite {
+        width: 110px;
+        height: 160px;
+        font-size: 4rem;
+    }
+
+    .title-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .ending-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================
+   LANDSCAPE (mobile)
+   ============================================ */
+
+@media (orientation: landscape) and (max-height: 500px) {
+    #dialogue-box {
+        min-height: 40%;
+        max-height: 55%;
+    }
+
+    #character-container {
+        display: none;
+    }
+
+    #input-overlay {
+        padding-top: 5vh;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

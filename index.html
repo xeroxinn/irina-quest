@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0d1b2a">
+    <title>Ирина Александровна в Тридевятом Царстве</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+</head>
+<body>
+    <!-- TITLE SCREEN -->
+    <div id="title-screen">
+        <div class="title-overlay">
+            <div class="title-content">
+                <div class="title-decoration">&#10045;</div>
+                <h1>Ирина Александровна<br><span class="title-sub">в Тридевятом Царстве</span></h1>
+                <div class="title-decoration">&#10045;</div>
+                <p class="title-tagline">Сказочное приключение ко Дню Рождения</p>
+                <p class="title-date">17 марта</p>
+                <button id="start-button" class="btn-start">Начать приключение</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="hidden">
+        <!-- Background layer -->
+        <div id="background" class="bg-kitchen"></div>
+
+        <!-- Character layer -->
+        <div id="character-container">
+            <div id="character-sprite"></div>
+            <div id="character-name-floating"></div>
+        </div>
+
+        <!-- Inventory indicator -->
+        <div id="inventory-bar">
+            <div id="inventory-icon">&#127890;</div>
+            <div id="inventory-list"></div>
+        </div>
+
+        <!-- Dialogue box -->
+        <div id="dialogue-box">
+            <div id="speaker-name"></div>
+            <div id="dialogue-text"></div>
+            <div id="click-indicator" class="blink">&#9660;</div>
+        </div>
+
+        <!-- Choice overlay -->
+        <div id="choice-overlay" class="hidden">
+            <div id="choice-container"></div>
+        </div>
+
+        <!-- Input overlay -->
+        <div id="input-overlay" class="hidden">
+            <div id="input-container">
+                <div id="input-prompt"></div>
+                <input type="text" id="input-field" autocomplete="off" placeholder="Введите ответ...">
+                <button id="input-submit" class="btn-submit">Ответить</button>
+                <div id="input-feedback" class="hidden"></div>
+            </div>
+        </div>
+
+        <!-- Video overlay -->
+        <div id="video-overlay" class="hidden">
+            <div id="video-container">
+                <div id="video-frame"></div>
+                <button id="video-close" class="btn-submit">Продолжить</button>
+            </div>
+        </div>
+
+        <!-- Transition overlay -->
+        <div id="transition-overlay"></div>
+
+        <!-- Progress indicator -->
+        <div id="progress-indicator"></div>
+
+        <!-- Music control -->
+        <button id="music-toggle" class="music-toggle" aria-label="Включить/выключить музыку">
+            <span id="music-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- ENDING SCREEN -->
+    <div id="ending-screen" class="hidden">
+        <div class="ending-overlay">
+            <div class="ending-content">
+                <div class="ending-fireworks" id="fireworks-container"></div>
+                <h1 class="ending-title">&#127881; С Днём Рождения, Ирина Александровна! &#127881;</h1>
+                <p class="ending-message" id="ending-message"></p>
+                <p class="ending-signature">С любовью, Игорь и Марина &#10084;</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+    <script src="story.js"></script>
+</body>
+</html>
