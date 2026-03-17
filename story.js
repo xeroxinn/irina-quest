@@ -1014,7 +1014,8 @@ const STORY = {
 
         epilogue_3: {
             background: 'lake',
-            character: { sprite: 'igor.png', label: 'Игорь и Марина' },
+            characterDuo: ['igor.png', 'marina.png'],
+            characterDuoLabel: 'Игорь и Марина',
             dialogue: [
                 {
                     speaker: '',

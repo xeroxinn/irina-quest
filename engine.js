@@ -275,15 +275,23 @@ class GameEngine {
                 this.els.background.className = `bg-${scene.background}`;
             }
 
-            // Set character (single or group)
+            // Set character (single, duo, or group)
             if (scene.characterGroup) {
-                // Epilogue group: show all characters as small thumbnails
+                // Epilogue group: depth-based arrangement
                 this.els.characterContainer.style.opacity = '1';
                 this.els.characterSprite.innerHTML = '<div class="epilogue-group">' +
                     scene.characterGroup.map(s =>
                         `<img src="assets/characters/${s}" alt="" draggable="false">`
                     ).join('') + '</div>';
                 this.els.characterNameFloat.textContent = '';
+            } else if (scene.characterDuo) {
+                // Two characters side-by-side (Igor & Marina)
+                this.els.characterContainer.style.opacity = '1';
+                this.els.characterSprite.innerHTML = '<div class="character-duo">' +
+                    scene.characterDuo.map(s =>
+                        `<img src="assets/characters/${s}" alt="" draggable="false">`
+                    ).join('') + '</div>';
+                this.els.characterNameFloat.textContent = scene.characterDuoLabel || '';
             } else if (scene.character) {
                 this.els.characterContainer.style.opacity = '1';
                 const sprite = scene.character.sprite || '';
