@@ -271,7 +271,13 @@ class GameEngine {
             // Set character
             if (scene.character) {
                 this.els.characterContainer.style.opacity = '1';
-                this.els.characterSprite.innerHTML = scene.character.sprite || '';
+                const sprite = scene.character.sprite || '';
+                if (sprite.endsWith('.png')) {
+                    this.els.characterSprite.innerHTML = `<img src="assets/characters/${sprite}" alt="${scene.character.label || ''}" draggable="false">`;
+                } else {
+                    this.els.characterSprite.innerHTML = sprite;
+                    this.els.characterSprite.style.fontSize = '5rem';
+                }
                 this.els.characterNameFloat.textContent = scene.character.label || '';
             } else {
                 this.els.characterContainer.style.opacity = '0';
@@ -321,7 +327,13 @@ class GameEngine {
         // Update character if this line has one
         if (line.character) {
             this.els.characterContainer.style.opacity = '1';
-            this.els.characterSprite.innerHTML = line.character.sprite || '';
+            const sprite = line.character.sprite || '';
+            if (sprite.endsWith('.png')) {
+                this.els.characterSprite.innerHTML = `<img src="assets/characters/${sprite}" alt="${line.character.label || ''}" draggable="false">`;
+            } else {
+                this.els.characterSprite.innerHTML = sprite;
+                this.els.characterSprite.style.fontSize = '5rem';
+            }
             this.els.characterNameFloat.textContent = line.character.label || '';
         }
 

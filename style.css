@@ -133,88 +133,62 @@ body { height: 100dvh; }
 }
 
 .bg-kitchen {
-    background:
-        radial-gradient(ellipse at 50% 70%, rgba(180, 130, 60, 0.3) 0%, transparent 60%),
+    background: url('assets/backgrounds/kitchen.jpg') center/cover no-repeat,
         linear-gradient(180deg, #2a1f14 0%, #3d2b1a 40%, #4a3520 70%, #2a1f14 100%);
 }
 
 .bg-portal {
-    background:
-        radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.6) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.4) 0%, transparent 60%),
+    background: url('assets/backgrounds/portal.jpg') center/cover no-repeat,
         linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 50%, #0d0d2b 100%);
-    animation: portalPulse 3s ease-in-out infinite;
 }
 
 .bg-forest {
-    background:
-        radial-gradient(ellipse at 30% 90%, rgba(20, 60, 20, 0.8) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 80%, rgba(15, 50, 15, 0.6) 0%, transparent 40%),
-        radial-gradient(ellipse at 50% 20%, rgba(50, 80, 50, 0.3) 0%, transparent 60%),
+    background: url('assets/backgrounds/forest.jpg') center/cover no-repeat,
         linear-gradient(180deg, #0a1a0a 0%, #0f2b0f 30%, #1a3a1a 60%, #0d1f0d 100%);
 }
 
 .bg-forest-magic {
-    background:
-        radial-gradient(circle at 20% 60%, rgba(100, 200, 100, 0.15) 0%, transparent 30%),
-        radial-gradient(circle at 80% 40%, rgba(50, 150, 200, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(200, 180, 50, 0.08) 0%, transparent 20%),
-        radial-gradient(ellipse at 30% 90%, rgba(20, 60, 20, 0.8) 0%, transparent 50%),
+    background: url('assets/backgrounds/forest-magic.jpg') center/cover no-repeat,
         linear-gradient(180deg, #081408 0%, #0f2b0f 30%, #1a3a1a 60%, #0d1f0d 100%);
 }
 
 .bg-forest-dark {
-    background:
-        radial-gradient(ellipse at 50% 50%, rgba(10, 10, 10, 0.5) 0%, transparent 80%),
+    background: url('assets/backgrounds/forest-dark.jpg') center/cover no-repeat,
         linear-gradient(180deg, #050a05 0%, #0a150a 30%, #0f1f0f 60%, #050a05 100%);
 }
 
 .bg-village {
-    background:
-        radial-gradient(ellipse at 50% 80%, rgba(139, 90, 43, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 30%, rgba(135, 200, 235, 0.15) 0%, transparent 40%),
+    background: url('assets/backgrounds/village.jpg') center/cover no-repeat,
         linear-gradient(180deg, #3a5c8a 0%, #7aa5c9 20%, #c4a96a 60%, #8b5a2b 80%, #5a3a1a 100%);
 }
 
 .bg-school {
-    background:
-        radial-gradient(ellipse at 50% 60%, rgba(180, 150, 100, 0.3) 0%, transparent 50%),
+    background: url('assets/backgrounds/school.jpg') center/cover no-repeat,
         linear-gradient(180deg, #4a3828 0%, #5a4838 30%, #6a5848 60%, #4a3828 100%);
 }
 
 .bg-spain {
-    background:
-        radial-gradient(ellipse at 60% 30%, rgba(255, 140, 0, 0.3) 0%, transparent 40%),
-        radial-gradient(ellipse at 40% 70%, rgba(200, 50, 50, 0.2) 0%, transparent 40%),
+    background: url('assets/backgrounds/spain.jpg') center/cover no-repeat,
         linear-gradient(180deg, #1a0a00 0%, #4a1a0a 30%, #7a2a0a 50%, #4a1a0a 70%, #1a0a00 100%);
 }
 
 .bg-castle {
-    background:
-        radial-gradient(ellipse at 50% 20%, rgba(80, 0, 0, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    background: url('assets/backgrounds/castle.jpg') center/cover no-repeat,
         linear-gradient(180deg, #1a0000 0%, #2a0a0a 30%, #1a1a2a 50%, #0a0a1a 80%, #000005 100%);
 }
 
 .bg-castle-inside {
-    background:
-        radial-gradient(circle at 50% 50%, rgba(200, 0, 0, 0.1) 0%, transparent 50%),
+    background: url('assets/backgrounds/castle-inside.jpg') center/cover no-repeat,
         linear-gradient(180deg, #0a0a0f 0%, #1a0a0f 30%, #150a15 60%, #0a0510 100%);
 }
 
 .bg-celebration {
-    background:
-        radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 30%),
-        radial-gradient(circle at 70% 60%, rgba(255, 105, 180, 0.1) 0%, transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(100, 200, 255, 0.1) 0%, transparent 30%),
+    background: url('assets/backgrounds/celebration.jpg') center/cover no-repeat,
         linear-gradient(180deg, #0d1b3a 0%, #1a2a4a 30%, #1a3a3a 60%, #0d2b1a 100%);
-    animation: celebrationShimmer 4s ease-in-out infinite;
 }
 
 .bg-lake {
-    background:
-        radial-gradient(ellipse at 50% 70%, rgba(50, 100, 180, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 40%, rgba(100, 180, 100, 0.2) 0%, transparent 40%),
+    background: url('assets/backgrounds/lake.jpg') center/cover no-repeat,
         linear-gradient(180deg, #1a3050 0%, #2a5070 25%, #3a7a6a 50%, #2a6050 70%, #1a3a2a 100%);
 }
 
@@ -335,12 +309,17 @@ body { height: 100dvh; }
     height: 200px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    font-size: 5rem;
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(240, 214, 138, 0.15));
     transition: all 0.5s ease;
     animation: characterFloat 3s ease-in-out infinite;
+}
+
+#character-sprite img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 @keyframes characterFloat {
@@ -859,7 +838,6 @@ body { height: 100dvh; }
     #character-sprite {
         width: 200px;
         height: 280px;
-        font-size: 6rem;
     }
 
     #character-name-floating {
@@ -943,7 +921,6 @@ body { height: 100dvh; }
     #character-sprite {
         width: 110px;
         height: 160px;
-        font-size: 4rem;
     }
 
     .title-content h1 {

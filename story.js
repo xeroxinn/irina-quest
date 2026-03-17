@@ -31,7 +31,7 @@ const STORY = {
 
         prologue_2: {
             background: 'kitchen',
-            character: { sprite: '🐱', label: 'Кот Монти' },
+            character: { sprite: 'cat-monti.png', label: 'Кот Монти' },
             dialogue: [
                 {
                     speaker: '',
@@ -97,7 +97,7 @@ const STORY = {
 
         act1_cat: {
             background: 'forest-magic',
-            character: { sprite: '🐱‍🎓', label: 'Учёный Кот' },
+            character: { sprite: 'cat-scientist.png', label: 'Учёный Кот' },
             dialogue: [
                 {
                     speaker: 'Учёный Кот',
@@ -130,7 +130,7 @@ const STORY = {
 
         act1_leshiy: {
             background: 'forest-dark',
-            character: { sprite: '🧌', label: 'Леший' },
+            character: { sprite: 'leshiy.png', label: 'Леший' },
             dialogue: [
                 {
                     speaker: '',
@@ -164,7 +164,7 @@ const STORY = {
 
         act1_leshiy_success: {
             background: 'forest-dark',
-            character: { sprite: '🧌', label: 'Леший' },
+            character: { sprite: 'leshiy.png', label: 'Леший' },
             dialogue: [
                 {
                     speaker: 'Леший',
@@ -180,7 +180,7 @@ const STORY = {
 
         act1_leopold: {
             background: 'forest',
-            character: { sprite: '🐱', label: 'Кот Леопольд' },
+            character: { sprite: 'cat-leopold.png', label: 'Кот Леопольд' },
             dialogue: [
                 {
                     speaker: '',
@@ -204,7 +204,7 @@ const STORY = {
 
         act1_shapoklyak: {
             background: 'forest',
-            character: { sprite: '👵', label: 'Шапокляк' },
+            character: { sprite: 'shapoklyak.png', label: 'Шапокляк' },
             dialogue: [
                 {
                     speaker: '',
@@ -233,7 +233,7 @@ const STORY = {
 
         act1_pechkin: {
             background: 'forest',
-            character: { sprite: '📮', label: 'Почтальон Печкин' },
+            character: { sprite: 'pechkin.png', label: 'Почтальон Печкин' },
             dialogue: [
                 {
                     speaker: '',
@@ -284,7 +284,7 @@ const STORY = {
 
         act1_belyash: {
             background: 'forest',
-            character: { sprite: '🐈', label: 'Кот Беляш' },
+            character: { sprite: 'cat-belyash.png', label: 'Кот Беляш' },
             dialogue: [
                 {
                     speaker: '',
@@ -331,7 +331,7 @@ const STORY = {
 
         act2_school: {
             background: 'school',
-            character: { sprite: '🏫', label: 'Школа Тридевятого Царства' },
+            character: { sprite: '', label: 'Школа Тридевятого Царства' },
             dialogue: [
                 {
                     speaker: '',
@@ -416,7 +416,7 @@ const STORY = {
 
         act2_skatert: {
             background: 'village',
-            character: { sprite: '🧺', label: 'Скатерть-Самобранка' },
+            character: { sprite: '', label: 'Скатерть-Самобранка' },
             dialogue: [
                 {
                     speaker: '',
@@ -464,7 +464,7 @@ const STORY = {
 
         act2_cheburashka: {
             background: 'village',
-            character: { sprite: '🧸', label: 'Чебурашка и Крокодил Гена' },
+            character: { sprite: 'cheburashka.png', label: 'Чебурашка и Крокодил Гена' },
             dialogue: [
                 {
                     speaker: '',
@@ -489,7 +489,7 @@ const STORY = {
 
         act2_vovka: {
             background: 'village',
-            character: { sprite: '👦', label: 'Вовка из Тридевятого Царства' },
+            character: { sprite: 'vovka.png', label: 'Вовка из Тридевятого Царства' },
             dialogue: [
                 {
                     speaker: '',
@@ -513,7 +513,7 @@ const STORY = {
 
         act2_yablochko: {
             background: 'village',
-            character: { sprite: '🍎', label: 'Яблочко на Блюдечке' },
+            character: { sprite: '', label: 'Яблочко на Блюдечке' },
             dialogue: [
                 {
                     speaker: '',
@@ -588,7 +588,7 @@ const STORY = {
 
         act3_minstrel: {
             background: 'spain',
-            character: { sprite: '🎤', label: 'Заморский Менестрель' },
+            character: { sprite: 'minstrel.png', label: 'Заморский Менестрель' },
             dialogue: [
                 {
                     speaker: '',
@@ -620,7 +620,7 @@ const STORY = {
 
         act3_song1: {
             background: 'spain',
-            character: { sprite: '🎤', label: 'Заморский Менестрель' },
+            character: { sprite: 'minstrel.png', label: 'Заморский Менестрель' },
             dialogue: [
                 {
                     speaker: 'Менестрель',
@@ -651,7 +651,7 @@ const STORY = {
 
         act3_song_success: {
             background: 'spain',
-            character: { sprite: '🎤', label: 'Заморский Менестрель' },
+            character: { sprite: 'minstrel.png', label: 'Заморский Менестрель' },
             dialogue: [
                 {
                     speaker: 'Менестрель',
@@ -672,7 +672,7 @@ const STORY = {
 
         act3_witch: {
             background: 'spain',
-            character: { sprite: '🧙‍♀️', label: 'Итальянская Ведьма' },
+            character: { sprite: 'witch-italian.png', label: 'Итальянская Ведьма' },
             dialogue: [
                 {
                     speaker: '',
@@ -711,7 +711,7 @@ const STORY = {
 
         act3_witch_success: {
             background: 'spain',
-            character: { sprite: '🧙‍♀️', label: 'Итальянская Ведьма' },
+            character: { sprite: 'witch-italian.png', label: 'Итальянская Ведьма' },
             dialogue: [
                 {
                     speaker: 'Итальянская Ведьма',
@@ -754,7 +754,7 @@ const STORY = {
 
         act4_archi: {
             background: 'castle',
-            character: { sprite: '🐕', label: 'Пёс Арчи' },
+            character: { sprite: 'dog-archi.png', label: 'Пёс Арчи' },
             dialogue: [
                 {
                     speaker: 'Ирина Александровна',
@@ -799,7 +799,7 @@ const STORY = {
 
         act4_lacasa: {
             background: 'castle-inside',
-            character: { sprite: '🎭', label: 'Стражник в маске Дали' },
+            character: { sprite: 'guard-dali.png', label: 'Стражник в маске Дали' },
             dialogue: [
                 {
                     speaker: 'Стражник',
@@ -823,7 +823,7 @@ const STORY = {
 
         act4_babayaga: {
             background: 'castle-inside',
-            character: { sprite: '🧙‍♀️', label: 'Баба Яга' },
+            character: { sprite: 'baba-yaga.png', label: 'Баба Яга' },
             dialogue: [
                 {
                     speaker: '',
@@ -859,7 +859,7 @@ const STORY = {
 
         act4_koschei: {
             background: 'castle-inside',
-            character: { sprite: '💀', label: 'Кощей Бессмертный' },
+            character: { sprite: 'koschei.png', label: 'Кощей Бессмертный' },
             dialogue: [
                 {
                     speaker: '',
@@ -898,7 +898,7 @@ const STORY = {
 
         act4_finale_music: {
             background: 'castle-inside',
-            character: { sprite: '🎤', label: 'Заморский Менестрель' },
+            character: { sprite: 'minstrel.png', label: 'Заморский Менестрель' },
             dialogue: [
                 {
                     speaker: '',

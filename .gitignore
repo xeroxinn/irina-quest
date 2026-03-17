@@ -1,2 +1,6 @@
 .DS_Store
 generate_test.py
+generate_backgrounds.py
+generate_characters.py
+assets/screenshot-*.png
+assets/test_*.png
