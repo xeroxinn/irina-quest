@@ -335,9 +335,11 @@ body { height: 100dvh; }
     font-family: 'Playfair Display', serif;
     font-size: 0.8rem;
     color: #f0d68a;
-    margin-top: 0.3em;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    opacity: 0.8;
+    margin-top: 0.4em;
+    padding: 0.15em 0.6em;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 4px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* ============================================
